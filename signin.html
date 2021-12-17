@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./styles/sign.css">
+    <title>LinkedIn Login, Sign in | LinkedIn</title>
+    <link rel="shortcut icon" href="https://icons.iconarchive.com/icons/danleech/simple/48/linkedin-icon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="./signstyles/sign.css">
 </head>
 <body>
     <div id="top_logo">
@@ -25,14 +26,14 @@
           </div>
         <div id="contain2">
             <form>
-                <p>Enter email</p>
-              <input class="in" type="text" placeholder="Email">
+                <p>Enter username</p>
+              <input id="username" class="in" type="text" placeholder="Username">
               <p>Enter password (6 or more charecters)</p>
-              <input class="in" type="password" placeholder="Password">
+              <input id="password" class="in" type="password" placeholder="Password">
             </form>
             <br/>
             <br/>
-            <button>Sign In</button>
+            <button onclick="login()">Sign In</button>
             <br>
             <p id="text_signin">New to linkedIn? <a href="signup.html">Join now</a></p>
             
@@ -41,3 +42,4 @@
           
 </body>
 </html>
+<script src="signin.js"></script>

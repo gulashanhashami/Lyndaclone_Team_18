@@ -9,12 +9,15 @@ body{
     background-color: #2ea4e4;
 }
 #contain{
+   
     width: 32%;
     height: 475px;
     margin: auto;
     margin-top: 30px;
     text-align: center;
-    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    overflow-y: scroll;
+    background-color: white;
+  
 }
 input{
     width: 90%;
@@ -23,6 +26,11 @@ input{
     outline: 0;
     border-radius: 5px;
 }
+input:focus {
+    outline: none;
+    border-color: #0073b1;
+    box-shadow: 0 0 10px #0073b1;
+  }
 button{
     width: 92%;
     height: 50px;
@@ -100,7 +108,7 @@ margin-top: 10px;
 }
 
 #contain1{
- 
+  
     width: 45%;
     height: 515px;
     margin: auto;
@@ -139,6 +147,8 @@ margin-top: 10px;
      margin-left: 130px;
  }
  a{
+     color: #0073b1;
+     font-weight: bold;
      text-decoration: none;
  }
  #logotext_signin{
