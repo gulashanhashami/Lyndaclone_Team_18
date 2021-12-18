@@ -15,21 +15,19 @@ body {
   display: flex;
   justify-content: start;
   align-items: center;
-  /* border: 2px solid black; */
   height: 50px;
   width: 100%;
 }
 #navbar-downmenu {
-  /* border: 2px solid black; */
   height: 40px;
   width: 100%;
   display: flex;
   justify-content: flex-end;
   align-items: center;
   font-size: 20px;
+  background-color: rgb(233, 233, 233);
 }
 #navbar-downmenu li a {
-  /* border: 2px solid black; */
   display: flex;
   font-family: "oswald", sans-serif;
   font-size: 18px;
@@ -39,14 +37,18 @@ body {
   padding: 1rem;
   margin-right: 1rem;
 }
-
+#navbar-downmenu li a:hover {
+  color: black;
+  font-weight: bold;
+  text-transform: inherit;
+  text-decoration: underline;
+}
 #navbar-menu {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding-left: 50px;
 }
-
 #navbar-menu li {
   display: flex;
   font-family: "oswald", sans-serif;
@@ -75,10 +77,10 @@ body {
   border-radius: 5px;
   padding: 5px;
 }
-#input-box:hover{
-   background-color: rgb(233,233,233);
-   text-transform: uppercase;
-   font-size: 15px;
+#input-box:hover {
+  background-color: rgb(233, 233, 233);
+  text-transform: uppercase;
+  font-size: 15px;
 }
 #button-box {
   font-size: 27px;
@@ -105,6 +107,10 @@ body {
   font-size: 20px;
   border: none;
 }
+#button-box1:hover {
+  background-color: rgb(233, 233, 233);
+  text-transform: uppercase;
+}
 a {
   text-decoration: none;
   font-size: 20px;
@@ -114,17 +120,14 @@ a {
 #box1 {
   display: flex;
   justify-content: flex-start;
-  /* border: 1px solid black; */
   width: 100%;
   height: 400px;
 }
 #box1-1 {
-  /* border: 1px solid black; */
   width: 65%;
   height: 400px;
 }
 #box1-2 {
-  /* border: 1px solid black; */
   width: 35%;
   height: 400px;
 }
@@ -174,6 +177,8 @@ a {
   border: none;
   border-radius: 2px;
   margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 5px;
 }
 #p-a {
   margin-left: 150px;
@@ -184,7 +189,6 @@ a {
 }
 #p-box2 {
   margin-left: 150px;
-  /* color: black; */
   font-family: "oswald", sans-serif;
   font-size: 30px;
   background-color: rgb(243, 242, 239);
@@ -207,13 +211,11 @@ a {
   font-size: 30px;
 }
 #box2-1 {
-  /* border: 3px solid yellow; */
   width: 280px;
   height: 280px;
   margin-top: 100px;
   display: inline-block;
 }
-
 #text-div {
   background-color: rgb(243, 242, 239);
   font-size: 20px;
@@ -281,15 +283,14 @@ a {
   width: 80%;
   height: 360px;
   margin: auto;
-  /* border: 1px solid black; */
   margin-top: 10px;
 }
 .box3-1 {
   width: 100%;
   height: 150px;
   margin: auto;
-  /* border: 1px solid red; */
   background-color: rgb(215, 235, 206);
+  border: none;
 }
 .h {
   font-family: "oswald", sans-serif;
@@ -316,9 +317,11 @@ a {
 }
 .box3-2 div {
   height: 50px;
-  border: 1px solid black;
-  border-radius: 10px;
+  border-radius: 15px;
   display: flex;
+}
+.box3-2 div:hover {
+  background-color: rgb(215, 235, 206);
 }
 .h3-box3 {
   font-size: 20px;
@@ -326,35 +329,31 @@ a {
   font-weight: 700;
   color: black;
   border: none;
-
 }
-h3{
+h3 {
   margin-top: 12px;
 }
-.h3-box3:hover {
-  background-color: cadetblue;
-}
 .explore {
-  margin-left: 80px;
+  margin-left: 65px;
   font-size: 20px;
   font-family: sans-serif;
   font-weight: 700;
   color: blue;
 }
 .explore1 {
-  margin-left: 170px;
+  margin-left: 150px;
   color: blue;
 }
 .explore4 {
-  margin-left: 155px;
+  margin-left: 135px;
   color: blue;
 }
 .explore6 {
-  margin-left: 110px;
+  margin-left: 100px;
   color: blue;
 }
 .explore2 {
-  margin-left: 95px;
+  margin-left: 80px;
   color: blue;
 }
 .explore:hover {
@@ -363,7 +362,6 @@ h3{
 .box4 {
   display: flex;
   justify-content: center;
-  /* border: 1px solid red; */
   width: 80%;
   height: 450px;
   margin: auto;
@@ -378,11 +376,10 @@ h3{
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;
   width: 30%;
   height: 200px;
-  /* border: 1px solid red; */
 }
 .box4-1:hover {
   transform: scale(1.5);
-  font-size: 10px;
+  background-color: rgb(233, 233, 233);
 }
 .box4-img {
   width: 100%;
@@ -420,7 +417,6 @@ h3{
   margin: auto;
   width: 60%;
   height: 30px;
-  /* border: 2px solid red; */
   margin-top: 50px;
 }
 .box5 li a {
@@ -445,4 +441,3 @@ li {
 .corporation {
   font-size: 15px;
 }
-
