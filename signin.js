@@ -25,7 +25,7 @@ async function login(){
         document.getElementById("username").style.borderColor="grey";
         document.getElementById("password").style.borderColor="grey";
         alert("Login successfully.");
-        //window.location.href="home.html";
+        window.location.href="home.html";
     }
     else{
         document.getElementById("username").style.borderColor="red";
