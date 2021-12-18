@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="https://icons.iconarchive.com/icons/danleech/simple/48/linkedin-icon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="checkout.css"/>
+    <title>checkout</title>
+</head>
+<body>
+    <div id="header">
+        <img  id= "icon" src = "data:image/png;base64,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" alt=""/>
+        <img  id="lock" src ="data:image/jpeg;base64,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" alt=""/>
+        <div id="learning">SECURE CHECKOUT</div>
+    </div>
+    <div class="container">
+
+        <div class="box1">
+
+            <div id="left">
+                <p id="text">Learning Premium <br> Subscription</p>
+            </div>
+           
+            <div id="right">
+<p id="text1">Gulshan, start your 1-month free trial now!</p>
+            </div>
+        </div>
+
+        <div id="confirm-text">
+            <div id="number">1</div>
+            <p id="confirm">Confirm your billing cycle</p>
+        </div>
+        <p id="select">Select annual to save 36% and expense with a single receipt.</p>
+
+        <div class="box2">
+
+            <div id="left-box">
+                <p id="left-text">Monthly</p>
+                <p id="left1">1-month free trial<br>then ₹1,400.00 / month</p>
+            </div>
+           
+            <div id="right-box">
+                <p id="left-text">Annual</p>
+                <p id="left11">1-month free trial<br>
+                    then ₹900.00 / month (₹10,800.00 annually)</p>
+                 
+            </div>
+        </div>
+<div id="box-box">
+<div class="box3">
+    <!-- anual section -->
+    <div id="anual">
+        <div id="box-31">
+            Total after free trial (₹900.00 x 12 months)
+        </div>
+        <div id="box-31">
+            Today's total
+        </div>
+        <div id="box-31">
+            Your free trial begins on December 15, 2021 and will end on January 15, 2022. You can cancel anytime before January 15, 2022 to avoid being 
+            charged and we'll send an email reminder 7 days before the trial ends.
+        </div>
+    </div>
+    <!-- monthly section -->
+    <div id="month">
+        <div id="box-31">
+           Monthly after free trial
+        </div>
+        <div id="box-31">
+            Today's total
+        </div>
+        <div id="box-31">
+            Your free trial begins on December 15, 2021 and will end on January 15, 2022. You can cancel anytime before January 15, 2022 to avoid being 
+            charged and we'll send an email reminder 7 days before the trial ends.
+        </div>
+    </div>
+    
+</div>
+</div>
+<br>
+ 
+
+<div id="confirm-text">
+    <div id="number">2</div>
+    <p id="confirm">Payment</p>
+</div>
+
+<div class="box4">
+    <div id="box-41">
+        <img  id="logos" src="https://static-exp1.licdn.com/sc/h/8bca1rltjmsti0v31srweuz2z" alt="">
+    </div><br>
+    <label id="name">First name*</label><br>
+    <input id="input" type="text" placeholder="Enter first name"/><br><br>
+
+    <label id="name">Last name*</label><br>
+    <input id="input" type="text" placeholder="Enter last name"/><br><br>
+
+    <label id="name">Credit or Debit card Number*</label><br>
+    <input id="input" type="number" placeholder="Enter number"/>
+
+<div id="span">
+    <div id="expiry-box">
+        <p id="expiry-date"> Expiry date*</p><br>
+        <input  id="expiry" type="text" placeholder="MM/YY"><br><br>
+    </div>
+    <div id="expiry-box">
+        <p id="expiry-date1"> Security code* </p><br>
+        <input  id="expiry1" type="text"><br><br>
+    </div>
+</div>
+<br><br>
+<label id="credit">Country*</label><br>
+    <!-- <input id="input" type="text" placeholder="Enter first name"/><br><br> -->
+    <select id="input">
+        <option value="">India</option>
+        <option value="low">Italy</option>
+        <option value="high">Jersy</option>
+        <option value="high">Israel</option>
+        <option value="high">Yamen</option>
+        <option value="high">Aruba</option>
+        <option value="high">Kenya</option>
+        <option value="high">Korea</option>
+
+      </select>
+    <div id="span">
+        <div id="expiry-box">
+            <p id="expiry-date"> Postal code*</p><br>
+            <input  id="expiry" type="text" placeholder="MM/YY"><br><br>
+        </div>
+        <div id="expiry-box">
+            <p id="expiry-date1">GST</p><br>
+            <input  id="expiry1" type="text"><br><br>
+        </div>
+    </div>
+    <br><br>
+
+    <label id="name">OTP:</label><br>
+<input id="otp" type=number placeholder="Enter otp">
+<br><br>
+
+<button id="button">Pay Now</button>
+
+<button id="button1">Submit</button>
+</div>
+
+<div class="box5">
+    <div id="box-51">
+        <p id="frequently">Frequently asked questions</p>
+    </div><br>
+
+    <div id="box6">
+        <div class="card">
+            <h3 id="con">Will I be charged during my free trial?</h3><br>
+     <p id="content"> No, you won't be charged during your free trial, which begins on December 15, 2021 and ends on January 15, 2022. You can cancel anytime before January 15, 
+         2022 to avoid being charged. </p>
+        </div>
+
+        <div class="card">
+            <h3 id="con">How can I cancel during my free trial?</h3><br>
+     <p id="content"> Once you're signed up, a link to cancel will appear on your Settings page. 
+         Learn more about how to cancel on our <p id="blue">Help Center. </p></p>
+        </div>
+
+        <div class="card">
+            <h3 id="con">What happens after the free trial period?</h3><br>
+     <p id="content"> If you do not cancel before your free trial period ends on January 15, 2022, 
+         you will be automatically charged for your subscription.</p>
+        </div>
+
+        
+    </div>
+</div>
+
+    </div>
+</body>
+</html>
+
+<script>
+
+    window.onload=function(){
+    document.querySelector("#anual").style.display="none";
+   //document.querySelector("#month").style.display="none";
+    
+}
+
+document.getElementById("left-box").addEventListener("click",function(){
+
+var box1= document.querySelector("#month");
+box1.style.display = "block";
+var box2= document.querySelector("#anual");
+box2.style.display="none";
+
+});
+
+document.getElementById("right-box").addEventListener("click",function(){
+ 
+ var box1= document.querySelector("#month");
+box1.style.display = "none";
+var box2= document.querySelector("#anual");
+box2.style.display="block";
+
+});
+
+document.getElementById("button").addEventListener("click",function(){
+
+alert(" Please enter your OTP and submit it ");
+});
+
+
+document.getElementById("button1").addEventListener("click",function(){
+
+alert("Your order is successfully placed. Thank You!");
+});
+</script>
