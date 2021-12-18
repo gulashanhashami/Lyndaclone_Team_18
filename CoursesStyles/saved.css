@@ -1,0 +1,100 @@
+.container {
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+.options a {
+  text-decoration: none;
+  color: #7a7670;
+  margin-right: 20px;
+}
+
+.options a:nth-child(2) {
+  text-decoration: underline;
+  color: #0073b1;
+  font-weight: 550;
+}
+#displayProducts > div {
+  display: flex;
+  border: 1px solid none;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+#displayProducts img {
+  width: 220px;
+  height: 140px;
+  margin-top: 15px;
+}
+#displayProducts > div > div:nth-child(1) {
+  border: 1px solid none;
+  margin-right: 20px;
+}
+#displayProducts > div > div:nth-child(2) {
+  flex-grow: 2;
+}
+.optionBox {
+  display: flex;
+  border: 1px solid none;
+  justify-content: space-between;
+}
+.wholeSaveBox {
+  display: flex;
+}
+.wholeSaveBox > div {
+  margin-right: 5px;
+}
+
+.saveBox {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid none;
+  align-items: center;
+  cursor: pointer;
+}
+.saveBox > div {
+  width: 5px;
+  height: 5px;
+  margin-right: 3px;
+  background-color: #666666;
+}
+
+.wholeSaveBox button {
+  color: #0473b1;
+  border: 1px solid #0473b1;
+  font-weight: 550;
+  width: 150px;
+  height: 35px;
+  cursor: pointer;
+}
+body button {
+  cursor: pointer;
+}
+#footer {
+  margin-top: 50px;
+}
+#footer > div {
+  display: flex;
+  align-items: center;
+  width: 900px;
+  margin: auto;
+  font-family: sans-serif;
+}
+#footerMatter {
+  justify-content: space-evenly;
+  font-size: 12px;
+  font-weight: 550;
+}
+.dot {
+  font-size: 5px;
+  color: #cdd0d4;
+  vertical-align: middle;
+}
+#footerImg {
+  display: flex;
+  align-items: center;
+  font-size: 12.5px;
+  justify-content: center;
+}
+#footerImg img {
+  width: 100px;
+}
