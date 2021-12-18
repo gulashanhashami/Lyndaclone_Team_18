@@ -321,3 +321,122 @@ body button {
 #all .select-box {
   width: 120px;
 }
+
+/* navbar csss */
+#navbar-main {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  height: 50px;
+  width: 100%;
+}
+
+#navbar-downmenu {
+  height: 40px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: 20px;
+  background-color: rgb(233, 233, 233);
+}
+
+#navbar-downmenu li a {
+  display: flex;
+  font-family: "oswald", sans-serif;
+  font-size: 18px;
+  justify-content: flex-end;
+  align-items: center;
+  list-style: none;
+  padding: 1rem;
+  margin-right: 1rem;
+}
+
+#navbar-downmenu li a:hover {
+  color: black;
+  font-weight: bold;
+  text-transform: inherit;
+  text-decoration: underline;
+}
+
+#navbar-menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 50px;
+}
+
+#navbar-menu li {
+  display: flex;
+  font-family: "oswald", sans-serif;
+  align-items: center;
+  list-style: none;
+  padding: 1rem;
+  padding-left: 1.8rem;
+}
+
+.fa-linkedin {
+  font-size: 25px;
+  color: blue;
+}
+
+.p-tag {
+  margin-left: 10px;
+  font-size: 20px;
+  font-family: "oswald", sans-serif;
+  color: black;
+}
+
+.fa-bars {
+  font-size: 20px;
+  color: grey;
+}
+
+#input-box {
+  font-size: 20px;
+  font-family: "oswald", sans-serif;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+#input-box:hover {
+  background-color: rgb(233, 233, 233);
+  text-transform: uppercase;
+  font-size: 15px;
+}
+
+#button-box {
+  font-size: 27px;
+  border-radius: 5px;
+}
+
+.fa-home {
+  font-size: 20px;
+  color: rgb(183, 183, 183);
+}
+
+.fa-book-open {
+  font-size: 20px;
+  color: rgb(134, 134, 134);
+}
+
+#img {
+  border-radius: 30px;
+  width: 40px;
+  height: 40px;
+}
+
+.fa-passport {
+  font-size: 20px;
+  color: rgb(134, 134, 134);
+}
+
+#button-box1 {
+  font-size: 20px;
+  border: none;
+}
+
+#button-box1:hover {
+  background-color: rgb(233, 233, 233);
+  text-transform: uppercase;
+}
