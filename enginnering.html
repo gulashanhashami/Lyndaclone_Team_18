@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Engineering</title>
+    <link rel="stylesheet" href="./CoursesStyles/courses.css" />
+  </head>
+  <body>
+    <div id="wholeContainer"></div>
+  </body>
+</html>
+<script type="module">
+  import {
+    // stack,
+    languageFunc,
+    typeFunc,
+    timeFunc,
+    levelFunc,
+    allFunc,
+    display,
+    showLanguages,
+    languageClose,
+    showTime,
+    timeClose,
+    showLevel,
+    levelClose,
+    showAll,
+    closeAllFilter,
+    allReset,
+    reset,
+    typeClose,
+    showType,
+    openSortOptions,
+    viewcount,
+  } from "./CoursesScripts/courses.js";
+
+  import { pageAppend } from "./CoursesComponents/coursepage.js";
+
+  document.getElementById("wholeContainer").innerHTML = pageAppend();
+
+  let savedData = [];
+
+  let data = [
+    {
+      type: "COURSE",
+      language: "English",
+      duration: "16800",
+      level: ["Beginner"],
+      name: "Practical Engineering",
+      by: "Grady Hillhouse",
+      year: "Updated 2 weeks ago",
+      skill: " Engineering",
+      learners: "278,684",
+      totalLearners: 278684,
+      image:
+        "https://cdn.lynda.com/course/724789/724789-636656999186511920-16x9.jpg",
+    },
+    {
+      type: "VIDEO",
+      language: "English",
+      duration: "127",
+      level: ["Beginner"],
+      name: "Supply chain engineers",
+      fromTheCourse: "Careers in Supply Chain and Operations",
+      year: "Apr 2019",
+      learners: "20,828",
+      totalLearners: 20828,
+      image:
+        "https://cdn.lynda.com/course/5016708/5016708-1587665744514-16x9.jpg",
+    },
+    {
+      type: "LEARNING PATH",
+      language: "English",
+      duration: "86400",
+      level: [],
+      name: "The Top 10 Most Popular Courses among Engineering Professionals",
+      year: "4 months ago",
+      skill: "Career Management",
+      learners: "3,064",
+      totalLearners: 3064,
+      image:
+        "https://media-exp1.licdn.com/dms/image/D4D08AQFx57owD5fGmQ/croft-frontend-shrinkToFit1024/0/1629932433413?e=2159024400&v=beta&t=7PsxI8mWky7NIvgEE5x0lqJwXnZlIfZ3dCqS45yHNdg",
+    },
+    {
+      type: "AUDIO",
+      language: "English",
+      duration: "159",
+      level: [],
+      name: "Making habits attractive",
+      fromTheCourse: "Atomic Habits (Blinkist Summary)",
+      year: "1 month ago",
+      learners: "1,534",
+      totalLearners: 1534,
+      image:
+        "https://cdn.lynda.com/course/681076/681076-636579258463424225-16x9.jpg",
+    },
+    {
+      type: "AUDIO",
+      language: "English",
+      duration: "203",
+      level: [],
+      name: "How to build trust",
+      fromTheCourse: " Creating a Great Place to Work for All",
+      year: "Apr 2021",
+      learners: "4,655 ",
+      totalLearners: 4655,
+      image:
+        "https://cdn.lynda.com/course/700791/700791-636777102918023371-16x9.jpg",
+    },
+    {
+      type: "LEARNING PATH",
+      language: "English",
+      duration: "43200",
+      level: [],
+      name: "Managing and Leading Developers",
+      year: "Apr 2020",
+      skill: " Managing Technical Personnel, People Management",
+      learners: "3,996",
+      totalLearners: 3996,
+      image:
+        "https://www.apple.com/careers/images/teams/software/old_images/hero/desktop@2x.jpg",
+    },
+    {
+      type: "VIDEO",
+      language: "English",
+      duration: "336",
+      level: ["Advanced"],
+      name: "Performance engineering",
+      fromTheCourse: "DevOps Foundations: Site Reliability Engineering",
+      year: "May 2018",
+      learners: "9,177",
+      totalLearners: 9177,
+      image:
+        "https://cloudcomputing-news.net/wp-content/uploads/sites/2/2020/03/online-testing-online-education-vector-id1141401963.jpg",
+    },
+    {
+      type: "COURSE",
+      language: "English",
+      duration: "7080",
+      level: ["Intermediate"],
+      name: "Python for Engineers and Scientists",
+      by: " Michele Vallisneri",
+      year: "2 months ago",
+      skill: " Python (Programming Language)",
+      learners: "5,045",
+      totalLearners: 5045,
+      image:
+        "https://cdn.lynda.com/course/661773/661773-1592866179658-16x9.jpg",
+    },
+    {
+      type: "VIDEO",
+      language: "Spanish",
+      duration: "125",
+      level: ["Beginner"],
+      name: "¿Qué es STEM?",
+      fromTheCourse: "Mujeres y tecnología: IT",
+      year: "Jun 2019",
+      learners: "1,287 ",
+      totalLearners: 1287,
+      image:
+        "https://depts.washington.edu/advis104/wordpress/wp-content/uploads/2020/06/LinkedInLearning.png",
+    },
+    {
+      type: "COURSE",
+      language: "Spanish",
+      duration: "5820",
+      level: ["Beginner", "Intermediate"],
+      name: "Kubernetes para desarrollo de aplicaciones esencial",
+      by: "Álvaro González Crespo",
+      year: "Updated Mar 2020",
+      skill: " Cluster Management, Kubernetes",
+      learners: "11,482",
+      totalLearners: 11482,
+      image:
+        "https://cdn.lynda.com/course/647663/647663-1592866119482-16x9.jpg",
+    },
+    {
+      type: "VIDEO",
+      language: "Portuguese",
+      duration: "177",
+      level: [],
+      name: "Conceitos básicos",
+      fromTheCourse: " Computação em Nuvem: Noções Básicas",
+      year: "Mar 2021",
+      learners: "1,785",
+      totalLearners: 1785,
+      image:
+        "https://cc.sj-cdn.net/instructor/1zfc5276lx8tp-linkedin-lts/catalog_page/t56ge1ud6mc9/tile-image.1631317187.png",
+    },
+    {
+      type: "VIDEO",
+      language: "Portuguese",
+      duration: "199",
+      level: [],
+      name: "Como desenvolver garra e resiliência no mentorando",
+      fromTheCourse: " Como Desenvolver suas Competências de Mento",
+      year: "Aug 2018",
+      learners: "2,563",
+      totalLearners: 2563,
+      image:
+        "https://cc.sj-cdn.net/instructor/1zfc5276lx8tp-linkedin-lts/courses/g6g7v34e33za/promo-image.1624873210.png",
+    },
+  ];
+
+  const originalData = data;
+
+  let consistentData = [originalData];
+
+  let toAppend = document.getElementById("displayProducts");
+
+  display(data, toAppend);
+
+  let stack = [];
+
+  let language = document.querySelector("#language .selected");
+  language.addEventListener("click", () => {
+    languageFunc(stack);
+  });
+
+  let type = document.querySelector("#type .selected");
+  type.addEventListener("click", () => {
+    typeFunc(stack);
+  });
+
+  let time = document.querySelector("#time .selected");
+  time.addEventListener("click", () => {
+    timeFunc(stack);
+  });
+
+  let level = document.querySelector("#level .selected");
+  level.addEventListener("click", () => {
+    levelFunc(stack);
+  });
+
+  let all = document.querySelector("#all .selected");
+  all.addEventListener("click", () => {
+    allFunc(stack);
+  });
+
+  document.getElementById("sortSelected").addEventListener("click", () => {
+    openSortOptions();
+  });
+  document.getElementById("viewCount").addEventListener("click", () => {
+    viewcount(data);
+  });
+
+  document.getElementById("showLanguages").addEventListener("click", () => {
+    data = showLanguages(data, stack, consistentData);
+  });
+
+  document.getElementById("languageClose").addEventListener("click", () => {
+    languageClose(stack, consistentData);
+  });
+
+  document.getElementById("showType").addEventListener("click", () => {
+    data = showType(data, stack, consistentData);
+  });
+  document.getElementById("typeClose").addEventListener("click", () => {
+    typeClose(stack);
+  });
+
+  document.getElementById("showTime").addEventListener("click", () => {
+    data = showTime(data, stack, consistentData);
+  });
+
+  document.getElementById("timeClose").addEventListener("click", () => {
+    timeClose(stack, consistentData);
+  });
+
+  document.getElementById("showLevel").addEventListener("click", () => {
+    data = showLevel(data, stack, consistentData);
+  });
+
+  document.getElementById("levelClose").addEventListener("click", () => {
+    levelClose(stack, consistentData);
+  });
+
+  document.getElementById("showAll").addEventListener("click", () => {
+    data = showAll(data, stack, consistentData);
+  });
+
+  document.getElementById("closeAllFilter").addEventListener("click", () => {
+    closeAllFilter(stack);
+  });
+
+  document.getElementById("allReset").addEventListener("click", () => {
+    allReset(originalData, stack);
+  });
+
+  document.getElementById("reset").addEventListener("click", () => {
+    reset(originalData, stack);
+  });
+</script>

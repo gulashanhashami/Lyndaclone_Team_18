@@ -1,0 +1,323 @@
+body {
+  position: relative;
+  font-family: sans-serif;
+}
+
+#container {
+  display: flex;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+#container > div {
+  margin-right: 10px;
+}
+
+.select-box {
+  /* border: 1px solid black; */
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  width: 180px;
+  border: 1px solid none;
+}
+.select-box .options-container {
+  box-sizing: content-box;
+  width: 400px;
+  transition: all 0.4s;
+  border-radius: 8px;
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  border-radius: 8px;
+
+  order: 1;
+}
+
+.select-box .options-container.active {
+  border: 1px solid black;
+  padding: 5px;
+  margin-top: 30px;
+  max-height: 1000px;
+  opacity: 1;
+  overflow-y: scroll;
+  box-shadow: 0px 50px 50px 0px rgba(0, 0, 0, 0.5);
+}
+
+/* .select-box .options-container.active + .selected::after {
+  transform: rotateX(180deg);
+  top: -6px;
+} */
+
+.select-box .options-container::-webkit-scrollbar {
+  width: 8px;
+  border-radius: 8px;
+}
+.select-box .options-container::-webkit-scrollbar-thumb {
+  background-color: grey;
+  border-radius: 8px;
+}
+.select-box .option,
+.selected {
+  padding: 12px 24px;
+  cursor: pointer;
+}
+.select-box .selected {
+  padding: 6px;
+  color: #71818d;
+  border: solid;
+}
+.select-box .selected:hover {
+  border: 3px solid #71818d;
+}
+.select-box .selected.active {
+  background-color: #2f7b15;
+  color: white;
+}
+.select-box .option label {
+  cursor: pointer;
+}
+.selected {
+  border: 1px solid black;
+  border-radius: 20px;
+  position: relative;
+  order: 0;
+}
+.selected::after {
+  content: "";
+  background: url("https://www.citypng.com/public/uploads/preview/dark-gray-down-head-arrow-11581594305zjibgsalxd.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+
+  position: absolute;
+  height: 100%;
+  width: 20px;
+  right: 10px;
+  top: 4px;
+
+  transition: all 0.4s;
+}
+.select-box .buttons {
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+}
+.select-box .buttons button {
+  padding: 10px;
+  border: none;
+  font-weight: 550;
+  color: #0978b4;
+}
+.select-box .buttons button:nth-child(2) {
+  background-color: #0978b4;
+  color: white;
+}
+.select-box .buttons button:nth-child(1) {
+  margin-right: 5px;
+}
+.popup {
+  border: 1px solid none;
+  width: 500px;
+  border-radius: 10px;
+  padding: 10px;
+  transform: translate(-40%, 10%);
+  position: absolute;
+  box-shadow: 0px 50px 50px 0px rgba(0, 0, 0, 0.5);
+  background-color: grey;
+  display: none;
+}
+.popup.active {
+  display: block;
+  transition: all 0.4s;
+}
+.close-pop {
+  position: absolute;
+  /* padding: 5px; */
+  text-align: center;
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  border-radius: 10px;
+  left: 90%;
+  top: 40px;
+  cursor: pointer;
+}
+.arrange .option {
+  padding: 2px;
+  border: 1px solid none;
+}
+.popup .arrange {
+  border: 1px solid none;
+  display: grid;
+  grid-template-columns: repeat(2, 200px);
+  grid-gap: 10px;
+  justify-content: space-around;
+}
+.popup .buttons {
+  display: flex;
+  justify-content: flex-end;
+}
+.popup .buttons button {
+  font-weight: 550;
+  padding: 10px;
+  color: #0978b4;
+}
+.popup .buttons button:nth-child(2) {
+  border: none;
+  background-color: #0978b4;
+  color: white;
+}
+
+#reset button {
+  width: 100px;
+  height: 35px;
+  border-radius: 20px;
+  border: none;
+  color: #0978b4;
+  font-weight: 550;
+  font-size: 15px;
+}
+#displayProducts {
+  padding-right: 40px;
+  padding-left: 40px;
+}
+
+#displayProducts > div {
+  display: flex;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+#displayProducts > div > div:nth-child(1) {
+  border: 1px solid none;
+  margin-right: 20px;
+}
+#displayProducts > div > div:nth-child(2) {
+  flex-grow: 2;
+}
+
+#displayProducts img {
+  width: 220px;
+  height: 140px;
+  margin-top: 15px;
+}
+
+.optionBox {
+  display: flex;
+  border: 1px solid none;
+  justify-content: space-between;
+}
+.wholeSaveBox {
+  display: flex;
+}
+.wholeSaveBox > div {
+  margin-right: 5px;
+}
+
+.saveBox {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid none;
+  align-items: center;
+  cursor: pointer;
+}
+.saveBox > div {
+  width: 5px;
+  height: 5px;
+  margin-right: 3px;
+  background-color: #666666;
+}
+
+.wholeSaveBox button {
+  color: #0473b1;
+  border: 1px solid #0473b1;
+  font-weight: 550;
+  width: 60px;
+  height: 35px;
+  cursor: pointer;
+}
+body button {
+  cursor: pointer;
+}
+
+#sort {
+  border: 1px solid none;
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+}
+
+#sortSelected {
+  border: 1px solid none;
+  position: relative;
+  border-radius: 20px;
+  width: 180px;
+  margin-bottom: 5px;
+}
+#sortSelected span {
+  cursor: pointer;
+}
+
+#sortSelected::after {
+  content: "";
+  background: url("https://cdn.iconscout.com/icon/free/png-256/keyboard-down-arrow-1780093-1518654.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+
+  position: absolute;
+  height: 100%;
+  width: 32px;
+  right: 0px;
+  top: 0px;
+
+  transition: all 0.4s;
+}
+
+#sortOptions {
+  width: 150px;
+  border: 1px solid black;
+  transition: all 0.4s;
+  border-radius: 8px;
+  max-height: 0px;
+  opacity: 0;
+}
+
+#sortOptions.active {
+  width: 100px;
+  transition: all 0.4s;
+  border-radius: 8px;
+  max-height: 200px;
+  opacity: 1;
+
+  box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.5);
+}
+#sortOptions.active > div {
+  margin: 5px 5px 5px 5px;
+}
+
+#sortOptions input {
+  display: none;
+}
+#sortOptions div:hover {
+  cursor: pointer;
+  background-color: grey;
+}
+#sortSelected span {
+  font-weight: 550;
+}
+#language {
+  border: 1px solid none;
+}
+#language .select-box {
+  width: 120px;
+}
+#type .select-box {
+  width: 100px;
+}
+#time .select-box {
+  width: 180px;
+}
+#level .select-box {
+  width: 90px;
+}
+#all .select-box {
+  width: 120px;
+}

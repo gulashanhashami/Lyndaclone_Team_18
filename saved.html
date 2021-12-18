@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Your Saved Courses</title>
+    <link rel="stylesheet" href="./CoursesStyles/saved.css" />
+    <link
+      rel="icon"
+      href="https://play-lh.googleusercontent.com/_rscxiBBXosch987Y2RJjgeVzhCoewK_0IXsrIKFKKVAaXRqZaVXcSgap7uwM4-fbck"
+      type="image/icon type"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h2>My Learning</h2>
+      <div class="options">
+        <a href="">In Progress</a>
+        <a href="" id="saved">Saved</a>
+        <a href="">My Collection</a>
+        <a href="">Learning History</a>
+        <a href="">Skills</a>
+      </div>
+    </div>
+    <hr />
+    <div class="container">
+      <div id="displayProducts"></div>
+    </div>
+    <div id="footer">
+      <div id="footerMatter">
+        <div>English (English)<i class="fa fa-sort-down"></i></div>
+        <div class="dot"><i class="fa fa-circle"></i></div>
+        <div>About</div>
+        <div class="dot"><i class="fa fa-circle"></i></div>
+        <div>Become an Instructor</div>
+        <div class="dot"><i class="fa fa-circle"></i></div>
+        <div>Buy for my team</div>
+        <div class="dot"><i class="fa fa-circle"></i></div>
+        <div>Help</div>
+        <div class="dot"><i class="fa fa-circle"></i></div>
+        <div>Privacy & Terms <i class="fa fa-chevron-up"></i></div>
+        <div class="dot"><i class="fa fa-circle"></i></div>
+        <div>Accessibility</div>
+        <div class="dot"><i class="fa fa-circle"></i></div>
+        <div>Apps <i class="fa fa-chevron-up"></i></div>
+      </div>
+      <div id="footerImg">
+        <div>
+          <img src="https://fontmeme.com/images/Linkedin-Logo-2.png" alt="" />
+        </div>
+        <div>Linkedln Corporation @ 2021</div>
+      </div>
+    </div>
+  </body>
+</html>
+<script type="module">
+  import { display } from "./CoursesScripts/courses.js";
+
+  let data = JSON.parse(localStorage.getItem("Saved Course"));
+
+  console.log(data);
+
+  document.getElementById("saved").textContent = `Saved (${data.length})`;
+
+  let toAppend = document.getElementById("displayProducts");
+  display(data, toAppend);
+</script>
