@@ -3,9 +3,9 @@
     padding:0;
     box-sizing: border-box;
 }
-/* body{
-    background-color:rgb(231, 222, 222);
-} */
+body{
+    font-family: sans-serif;
+}
 #header{
     width:100%;
     height:50px;
@@ -74,6 +74,7 @@
 #left-text{
     text-align:center;
   margin-top:30px;
+  font-size: 24px;
 }
 #left{
     text-align:center;
@@ -107,6 +108,7 @@
 #right-text{
     text-align:center;
     margin-top:70px;
+    font-size: 24px;
 }
 #right{
     text-align:center;
@@ -114,14 +116,14 @@
     margin-top:20px;
 }
 #down-text{
-    margin-left:500px;
+    margin-left:450px;
  font-size: 15px;
  color:grey;
  margin-top:10px;
 }
 #down-text1{
     margin-left:600px;
- font-size: 18px;
+ font-size: 15px;
  margin-top:10px; 
 }
 span{
@@ -143,11 +145,13 @@ grid-column-gap:160px;
     color:grey;
     margin-left:5px;
     margin-top: 0px;
+    font-size:14px;
 }
 #content1{
     color:grey;
     margin-left:15px;
     margin-top: 0px;
+    font-size:14px;
 }
 #library{
     width:40px;
@@ -157,6 +161,7 @@ grid-column-gap:160px;
 #cont{
     margin-top:13px;
     margin-left: 15px;
+    font-size:15px;
 }
 .card1{
 display:flex;
@@ -177,7 +182,7 @@ display:flex;
   margin-top:10px;
   margin:auto;
   text-align: center;
-  font-size:23px;
+  font-size:21px;
 }
 .box4{
     width:88%;
@@ -197,16 +202,19 @@ grid-column-gap:6px;
     background-color:rgb(230, 215, 215);
     text-align:center;
     padding:10px;
+    font-size: 13px;
+    color:grey;
 }
 #links span{
     display:flex;
-    margin-left:250px;
+    margin-left:370px;
     gap:10px;
     /* border-top:1px solid red; */
     width:100%;
     height:40px;
     margin-top:5px;
     color:black;
+    font-size: 12px;
 }
 #linkedin{
     margin-left:700px;
@@ -216,10 +224,12 @@ grid-column-gap:6px;
     display:flex;
     margin-top:15px;
     font-size:15px;
+    color:grey;
 }
 #linkedIn-logo{
     width:20px; 
     height:20px;
-   
-
+}
+#con{
+    font-size:15px;
 }
