@@ -28,7 +28,7 @@
 }
 .container{
     width:90%;
-    height:2000px;
+    height:1800px;
     margin:auto;
     /* border:solid 1px black; */
     background-color: rgb(228, 213, 213);
@@ -134,11 +134,17 @@
     font-size:15px;
   margin-left:110px;
 }
+#box-box{
+    width:800px;
+    height:270px;
+    /* border:1px solid black; */
+    margin:auto;
+}
 .box3{
     width:700px;
     height:270px;
     border:1px solid rgb(212, 201, 201);
-    margin-left:350px;
+    margin:auto;
     background-color: #fff; 
     border-radius:10px;
 }
@@ -148,6 +154,20 @@ height:70px;
 border-bottom:1px solid rgb(185, 174, 174);
 margin-top:15px;
 margin-left:25px;
+}
+#anual{
+    width:700px;
+    height:250px;
+    /* border:1px solid red; */
+    background-color: #fff; 
+    border-radius:10px;
+}
+#month{
+    width:700px;
+    height:250px;
+    /* border:1px solid red; */
+    background-color: #fff; 
+    border-radius:10px;
 }
 .box4{
     width:700px;
@@ -239,8 +259,17 @@ margin-top:10px;
          background-color:blue;
          border-radius:50px;
          color:#fff;
-         margin-left:270px;
+         margin-left:200px;
          border:none;
+     }
+     #button1{
+        font-size:15px;
+        width:140px;
+        height:50px;
+        background-color:blue;
+        border-radius:50px;
+        color:#fff;
+        border:none;
      }
      .box5{
         width:700px;

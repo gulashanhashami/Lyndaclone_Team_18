@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="https://icons.iconarchive.com/icons/danleech/simple/48/linkedin-icon.png" type="image/x-icon" />
     <link rel="stylesheet" href="checkout.css"/>
     <title>checkout</title>
 </head>
@@ -22,7 +23,7 @@
             </div>
            
             <div id="right">
-<p id="text1">Amruta, start your 1-month free trial now!</p>
+<p id="text1">Gulshan, start your 1-month free trial now!</p>
             </div>
         </div>
 
@@ -46,25 +47,39 @@
                  
             </div>
         </div>
-
+<div id="box-box">
 <div class="box3">
-    <!-- <div id="box-31">
-        Annual (₹1,400.00 x 12 months)       ₹16,800.00<br>
-        Annual discount (Save 36%)                 -₹6,000.00
-    </div> -->
+    <!-- anual section -->
+    <div id="anual">
+        <div id="box-31">
+            Total after free trial (₹900.00 x 12 months)
+        </div>
+        <div id="box-31">
+            Today's total
+        </div>
+        <div id="box-31">
+            Your free trial begins on December 15, 2021 and will end on January 15, 2022. You can cancel anytime before January 15, 2022 to avoid being 
+            charged and we'll send an email reminder 7 days before the trial ends.
+        </div>
+    </div>
+    <!-- monthly section -->
+    <div id="month">
+        <div id="box-31">
+           Monthly after free trial
+        </div>
+        <div id="box-31">
+            Today's total
+        </div>
+        <div id="box-31">
+            Your free trial begins on December 15, 2021 and will end on January 15, 2022. You can cancel anytime before January 15, 2022 to avoid being 
+            charged and we'll send an email reminder 7 days before the trial ends.
+        </div>
+    </div>
     
-    <div id="box-31">
-        Total after free trial (₹900.00 x 12 months)
-    </div>
-    <div id="box-31">
-        Today's total
-    </div>
-    <div id="box-31">
-        Your free trial begins on December 15, 2021 and will end on January 15, 2022. You can cancel anytime before January 15, 2022 to avoid being 
-        charged and we'll send an email reminder 7 days before the trial ends.
-    </div>
+</div>
 </div>
 
+ 
 
 <div id="confirm-text">
     <div id="number">2</div>
@@ -79,10 +94,10 @@
     <input id="input" type="text" placeholder="Enter first name"/><br><br>
 
     <label id="name">Last name*</label><br>
-    <input id="input" type="text" placeholder="Enter first name"/><br><br>
+    <input id="input" type="text" placeholder="Enter last name"/><br><br>
 
     <label id="name">Credit or Debit card Number*</label><br>
-    <input id="input" type="text" placeholder="Enter first name"/>
+    <input id="input" type="number" placeholder="Enter number"/>
 
 <div id="span">
     <div id="expiry-box">
@@ -126,7 +141,7 @@
 
 <button id="button">Pay Now</button>
 
-
+<button id="button1">Submit</button>
 </div>
 
 <div class="box5">
@@ -162,33 +177,39 @@
 </html>
 
 <script>
+
     window.onload=function(){
-    document.querySelector(".box3").style.display="block";
-    document.querySelector(".box3").style.display="none";
+    document.querySelector("#anual").style.display="none";
+   //document.querySelector("#month").style.display="none";
     
 }
 
 document.getElementById("left-box").addEventListener("click",function(){
 
-var box1= document.querySelector(".box3");
+var box1= document.querySelector("#month");
 box1.style.display = "block";
-var box2= document.querySelector(".box3");
+var box2= document.querySelector("#anual");
 box2.style.display="none";
 
 });
 
 document.getElementById("right-box").addEventListener("click",function(){
  
- var box1= document.querySelector(".box3");
+ var box1= document.querySelector("#month");
 box1.style.display = "none";
-var box2= document.querySelector(".box3");
+var box2= document.querySelector("#anual");
 box2.style.display="block";
 
 });
 
 document.getElementById("button").addEventListener("click",function(){
 
-alert("Payment Successful");
+alert(" Please enter your OTP and submit it ");
 });
 
+
+document.getElementById("button1").addEventListener("click",function(){
+
+alert("Your order is successfully placed. Thank You!");
+});
 </script>

@@ -92,6 +92,18 @@
     margin-left: 100px;
     border:none;
 }
+#btn1{
+    width:150px;
+    height:50px;
+    margin-top:25px;
+    background-color:blue;
+    border-radius: 50px;
+    color:#fff;
+    font-size: 20px;
+    text-decoration: none;
+    margin-left: 100px;
+    border:none;
+}
 #right-text{
     text-align:center;
     margin-top:70px;
