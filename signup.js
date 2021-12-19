@@ -67,7 +67,7 @@ async function register(){
         document.getElementById("password").style.borderColor="grey";
         document.getElementById("email").style.borderColor="grey";
         document.getElementById("mobile").style.borderColor="grey";
-         alert("User already exists. Please click on sign-In button.");
+         alert("User already exists.");
      }
    
      else{
