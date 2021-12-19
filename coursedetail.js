@@ -45,7 +45,7 @@
             div1.append(img)
             div2.append(p7,p1,p2,p3,p4,p6,p8,p9,p10,div4)
             function gocheck(){
-                window.location.href="checkout.html"
+                window.location.href="FreeTrial.html"
             }
             function gocheck1(){
                 window.location.href="checkout.html"
