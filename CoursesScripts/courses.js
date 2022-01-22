@@ -106,7 +106,7 @@ function display(data, append) {
         courseDetail(item);
       });
       let image = document.createElement("img");
-      image.src = item.image;
+      image.src = item.image_url;
       imageBox.append(image);
 
       let matterBox = document.createElement("div");
@@ -180,7 +180,7 @@ function display(data, append) {
         courseDetail(item);
       });
       let image = document.createElement("img");
-      image.src = item.image;
+      image.src = item.image_url;
       imageBox.append(image);
 
       let matterBox = document.createElement("div");
@@ -238,7 +238,7 @@ function display(data, append) {
         courseDetail(item);
       });
       let image = document.createElement("img");
-      image.src = item.image;
+      image.src = item.image_url;
       imageBox.append(image);
 
       let matterBox = document.createElement("div");
@@ -296,7 +296,7 @@ function display(data, append) {
         courseDetail(item);
       });
       let image = document.createElement("img");
-      image.src = item.image;
+      image.src = item.image_url;
       imageBox.append(image);
 
       let matterBox = document.createElement("div");
@@ -351,8 +351,6 @@ function display(data, append) {
   });
 }
 
-
-
 function courseDetail(item) {
   localStorage.setItem("coursed", JSON.stringify(item));
   window.location.href = "coursedetail.html";
@@ -360,7 +358,7 @@ function courseDetail(item) {
 
 // sorting according to selected languages
 
-function showLanguages(data, stack, consistentData) {
+async function showLanguages(stack, consistentData, keywords, values) {
   for (var i = 0; i < stack.length; i++) {
     if (stack[i] === document.querySelector("#language .options-container")) {
       stack.splice(i, 1);
@@ -371,23 +369,46 @@ function showLanguages(data, stack, consistentData) {
 
   let selected;
   var newData = [];
+  let url = "http://localhost:2345/courses/search?";
+
+  for (var i = 0; i < keywords.length; i++) {
+    if (keywords[i] == "language") {
+      keywords.splice(i, 1);
+      values.splice(i, 1);
+    }
+  }
 
   var radioboxes = document.querySelectorAll("#language input");
   for (var i = 0; i < radioboxes.length; i++) {
     if (radioboxes[i].checked) {
       selected = radioboxes[i].value;
+      values.push(selected);
+      keywords.push("language");
     }
   }
 
-  data.forEach((item) => {
-    if (item.language === selected) {
-      newData.push(item);
+  for (var i = 0; i < keywords.length; i++) {
+    if (i != keywords.length - 1) {
+      url = url + keywords[i] + "=" + values[i] + "&";
+    } else {
+      url = url + keywords[i] + "=" + values[i];
     }
-  });
+  }
+
+  let res = await fetch(url);
+  let data1 = await res.json();
+  console.log(data1);
+  console.log(url);
+
+  // data.forEach((item) => {
+  //   if (item.language === selected) {
+  //     newData.push(item);
+  //   }
+  // });
   document.querySelector("#language .selected").classList.toggle("active");
 
   let toAppend = document.getElementById("displayProducts");
-  display(newData, toAppend);
+  display(data1.courses, toAppend);
 
   document
     .querySelector("#language .options-container")
@@ -400,9 +421,8 @@ function showLanguages(data, stack, consistentData) {
   return newData;
 }
 
-
 // closing selected language
-function languageClose(stack, consistentData) {
+async function languageClose(stack, consistentData, keywords, values) {
   document.querySelector("#language .selected").textContent = "Language";
   document.querySelector("#language .selected").classList.toggle("active");
 
@@ -412,6 +432,27 @@ function languageClose(stack, consistentData) {
       stack.splice(i, 1);
     }
   }
+
+  let url = "http://localhost:2345/courses/search?";
+
+  for (var i = 0; i < keywords.length; i++) {
+    if (keywords[i] == "language") {
+      keywords.splice(i, 1);
+      values.splice(i, 1);
+    }
+  }
+
+  for (var i = 0; i < keywords.length; i++) {
+    if (i != keywords.length - 1) {
+      url = url + keywords[i] + "=" + values[i] + "&";
+    } else {
+      url = url + keywords[i] + "=" + values[i];
+    }
+  }
+
+  let res = await fetch(url);
+  let data1 = await res.json();
+  console.log(data1);
 
   var radioboxes = document.querySelectorAll("#language input");
   for (var i = 0; i < radioboxes.length; i++) {
@@ -426,17 +467,24 @@ function languageClose(stack, consistentData) {
 
   consistentData.pop();
   let toAppend = document.getElementById("displayProducts");
-  display(consistentData[consistentData.length - 1], toAppend);
+  display(data1.courses, toAppend);
 }
 
 // sorting according to selected type
 
-function showType(data, stack, consistentData) {
+async function showType(stack, consistentData, keywords, values) {
   document.querySelector("#type .selected").classList.toggle("active");
 
   for (var i = 0; i < stack.length; i++) {
     if (stack[i] === document.querySelector("#type .options-container")) {
       stack.splice(i, 1);
+    }
+  }
+
+  for (var i = 0; i < keywords.length; i++) {
+    if (keywords[i] == "type") {
+      keywords.splice(i, 1);
+      values.splice(i, 1);
     }
   }
 
@@ -447,33 +495,49 @@ function showType(data, stack, consistentData) {
   for (var i = 0; i < checkboxes.length; i++) {
     if (checkboxes[i].checked) {
       selectedarr.push(checkboxes[i].value);
+      values.push(checkboxes[i].value);
+      keywords.push("type");
     }
   }
 
-  var newData = [];
+  let url = "http://localhost:2345/courses/search?";
 
-  for (var i = 0; i < selectedarr.length; i++) {
-    data.forEach((item) => {
-      if (selectedarr[i] === item.type) {
-        newData.push(item);
-      }
-    });
+  for (var i = 0; i < keywords.length; i++) {
+    if (i != keywords.length - 1) {
+      url = url + keywords[i] + "=" + values[i] + "&";
+    } else {
+      url = url + keywords[i] + "=" + values[i];
+    }
   }
 
+  let res = await fetch(url);
+  let data1 = await res.json();
+  console.log(data1);
+
+  // var newData = [];
+
+  // for (var i = 0; i < selectedarr.length; i++) {
+  //   data.forEach((item) => {
+  //     if (selectedarr[i] === item.type) {
+  //       newData.push(item);
+  //     }
+  //   });
+  // }
+
   let toAppend = document.getElementById("displayProducts");
-  display(newData, toAppend);
+  display(data1.courses, toAppend);
   document.querySelector(
     "#type .selected"
-  ).textContent = `Type(${newData.length})`;
+  ).textContent = `Type(${data1.courses.length})`;
 
   document.querySelector("#type .options-container").classList.toggle("active");
   consistentData.push(newData);
   return newData;
 }
 
-// closes type option 
+// closes type option
 
-function typeClose(stack, consistentData) {
+async function typeClose(stack, consistentData, keywords, values) {
   document.querySelector("#type .selected").classList.toggle("active");
 
   for (var i = 0; i < stack.length; i++) {
@@ -489,17 +553,39 @@ function typeClose(stack, consistentData) {
     }
   }
 
+  let url = "http://localhost:2345/courses/search?";
+
+  for (var i = 0; i < keywords.length; i++) {
+    if (keywords[i] == "type") {
+      keywords.splice(i, 1);
+      values.splice(i, 1);
+    }
+  }
+
+  for (var i = 0; i < keywords.length; i++) {
+    if (i != keywords.length - 1) {
+      url = url + keywords[i] + "=" + values[i] + "&";
+    } else {
+      url = url + keywords[i] + "=" + values[i];
+    }
+  }
+
+  let res = await fetch(url);
+  let data1 = await res.json();
+  console.log(data1);
+
+  console.log(url);
+
   document.querySelector("#type .selected").textContent = `Type`;
 
   document.querySelector("#type .options-container").classList.toggle("active");
   consistentData.pop();
   let toAppend = document.getElementById("displayProducts");
-  display(consistentData[consistentData.length - 1], toAppend);
+  display(data1.courses, toAppend);
 }
 
-
 // sorting according to selected time period
-function showTime(data, stack, consistentData) {
+async function showTime(stack, consistentData, keywords, values) {
   document.querySelector("#time .selected").classList.toggle("active");
 
   for (var i = 0; i < stack.length; i++) {
@@ -516,45 +602,63 @@ function showTime(data, stack, consistentData) {
   for (var i = 0; i < checkboxes.length; i++) {
     if (checkboxes[i].checked) {
       selected.push(checkboxes[i].value);
+      // keywords.push("duration");
+      // values.push(checkboxes[i].value);
     }
   }
+
+  let url = "http://localhost:2345/courses/search?";
+
+  for (var i = 0; i < keywords.length; i++) {
+    if (i != keywords.length - 1 && keywords[i] != "duration") {
+      url = url + keywords[i] + "=" + values[i] + "&";
+    } else if (keywords[i] != "duration" && 1 == keywords.length) {
+      url = url + keywords[i] + "=" + values[i];
+    }
+  }
+
+  let res = await fetch(url);
+  let data2 = await res.json();
+  let data1 = data2.courses;
+  console.log(url);
+  console.log(data1);
 
   for (var i = 0; i < selected.length; i++) {
     let value = Number(selected[i]) - 1;
     console.log(value);
     if (value > 10800) {
-      data.forEach((item) => {
+      data1.forEach((item) => {
         if (Number(item.duration) > 10800) {
           newData.push(item);
         }
       });
     } else if (value < 10800 && value >= 7200) {
-      data.forEach((item) => {
+      data1.forEach((item) => {
         if (Number(item.duration) >= 7200 && Number(item.duration) < 10800) {
           newData.push(item);
         }
       });
     } else if (value < 7200 && value >= 3600) {
-      data.forEach((item) => {
+      data1.forEach((item) => {
         if (Number(item.duration) >= 3600 && Number(item.duration) < 7200) {
           newData.push(item);
         }
       });
     } else if (value < 3600 && value >= 1800) {
-      data.forEach((item) => {
+      data1.forEach((item) => {
         if (Number(item.duration) >= 1800 && Number(item.duration) < 3600) {
           newData.push(item);
         }
       });
     } else if (value < 1800 && value >= 600) {
       console.log("yes");
-      data.forEach((item) => {
+      data1.forEach((item) => {
         if (Number(item.duration) >= 600 && Number(item.duration) < 1800) {
           newData.push(item);
         }
       });
     } else if (value < 600) {
-      data.forEach((item) => {
+      data1.forEach((item) => {
         if (Number(item.duration) < 600 && Number(item.duration) >= 0) {
           newData.push(item);
         }
@@ -585,7 +689,7 @@ function showTime(data, stack, consistentData) {
 
 // closes time option
 
-function timeClose(stack, consistentData) {
+async function timeClose(stack, consistentData, keywords, values) {
   document.querySelector("#time .selected").classList.toggle("active");
 
   for (var i = 0; i < stack.length; i++) {
@@ -602,16 +706,29 @@ function timeClose(stack, consistentData) {
       checkboxes[i].checked = false;
     }
   }
+  let url = "http://localhost:2345/courses/search?";
+
+  for (var i = 0; i < keywords.length; i++) {
+    if (i != keywords.length - 1 && keywords[i] != "duration") {
+      url = url + keywords[i] + "=" + values[i] + "&";
+    } else if (keywords[i] != "duration" && 1 == keywords.length) {
+      url = url + keywords[i] + "=" + values[i];
+    }
+  }
+
+  let res = await fetch(url);
+  let data1 = await res.json();
+  console.log(url);
+  // console.log(data1);
 
   document.querySelector("#time .options-container").classList.toggle("active");
   consistentData.pop();
   let toAppend = document.getElementById("displayProducts");
-  display(consistentData[consistentData.length - 1], toAppend);
+  display(data1.courses, toAppend);
 }
 
-
 // sorting according to selected level
-function showLevel(data, stack, consistentData) {
+async function showLevel(stack, consistentData, keywords, values) {
   document.querySelector("#level .selected").classList.toggle("active");
 
   for (var i = 0; i < stack.length; i++) {
@@ -628,24 +745,41 @@ function showLevel(data, stack, consistentData) {
   for (var i = 0; i < checkboxes.length; i++) {
     if (checkboxes[i].checked) {
       selected.push(checkboxes[i].value);
+      keywords.push("level");
+      values.push(checkboxes[i].value);
     }
   }
 
-  for (var j = 0; j < selected.length; j++) {
-    data.forEach((item) => {
-      let arr = item.level;
+  let url = "http://localhost:2345/courses/search?";
 
-      for (var k = 0; k < arr.length; k++) {
-        if (arr[k] === selected[j]) {
-          newData.push(item);
-          break;
-        }
-      }
-    });
+  for (var i = 0; i < keywords.length; i++) {
+    if (i != keywords.length - 1) {
+      url = url + keywords[i] + "=" + values[i] + "&";
+    } else {
+      url = url + keywords[i] + "=" + values[i];
+    }
   }
 
+  let res = await fetch(url);
+  let data1 = await res.json();
+  console.log(url);
+  // console.log(data1);
+
+  // for (var j = 0; j < selected.length; j++) {
+  //   data.forEach((item) => {
+  //     let arr = item.level;
+
+  //     for (var k = 0; k < arr.length; k++) {
+  //       if (arr[k] === selected[j]) {
+  //         newData.push(item);
+  //         break;
+  //       }
+  //     }
+  //   });
+  // }
+
   let toAppend = document.getElementById("displayProducts");
-  display(newData, toAppend);
+  display(data1.courses, toAppend);
   console.log(newData);
 
   document
@@ -658,7 +792,7 @@ function showLevel(data, stack, consistentData) {
 
 // closes level option
 
-function levelClose(stack, consistentData) {
+async function levelClose(stack, consistentData, keywords, values) {
   document.querySelector("#level .selected").classList.toggle("active");
 
   for (var i = 0; i < stack.length; i++) {
@@ -674,18 +808,40 @@ function levelClose(stack, consistentData) {
     }
   }
 
+  for (var i = 0; i < keywords.length; i++) {
+    if (keywords[i] == "level") {
+      keywords.splice(i, 1);
+      values.splice(i, 1);
+    }
+  }
+
+  let url = "http://localhost:2345/courses/search?";
+
+  for (var i = 0; i < keywords.length; i++) {
+    if (i != keywords.length - 1) {
+      url = url + keywords[i] + "=" + values[i] + "&";
+    } else {
+      url = url + keywords[i] + "=" + values[i];
+    }
+  }
+
+  let res = await fetch(url);
+  let data1 = await res.json();
+  console.log(url);
+  // console.log(data1);
+
   document
     .querySelector("#level .options-container")
     .classList.toggle("active");
 
   consistentData.pop();
   let toAppend = document.getElementById("displayProducts");
-  display(consistentData[consistentData.length - 1], toAppend);
+  display(data1.courses, toAppend);
 }
 
 // sorting according to selected filter
 
-function showAll(data, stack, consistentData) {
+async function showAll(stack, consistentData, keywords, values) {
   document.querySelector("#all .selected").classList.toggle("active");
 
   for (var i = 0; i < stack.length; i++) {
@@ -707,102 +863,124 @@ function showAll(data, stack, consistentData) {
   for (var i = 0; i < radioboxes.length; i++) {
     if (radioboxes[i].checked) {
       selected = radioboxes[i].value;
+      keywords.push("language");
+      values.push(radioboxes[i].value);
     }
   }
 
-  data.forEach((item) => {
-    if (item.language === selected) {
-      newData.push(item);
-    }
-  });
+  // data.forEach((item) => {
+  //   if (item.language === selected) {
+  //     newData.push(item);
+  //   }
+  // });
 
   for (var i = 0; i < checkboxes1.length; i++) {
     if (checkboxes1[i].checked) {
       selectedarr.push(checkboxes1[i].value);
+      keywords.push("type");
+      values.push(checkboxes1[i].value);
     }
   }
 
-  for (var i = 0; i < selectedarr.length; i++) {
-    data.forEach((item) => {
-      if (selectedarr[i] === item.type) {
-        newData.push(item);
-      }
-    });
-  }
+  // for (var i = 0; i < selectedarr.length; i++) {
+  //   data.forEach((item) => {
+  //     if (selectedarr[i] === item.type) {
+  //       newData.push(item);
+  //     }
+  //   });
+  // }
 
   selectedarr = [];
 
-  for (var i = 0; i < checkboxes2.length; i++) {
-    if (checkboxes2[i].checked) {
-      selectedarr.push(checkboxes2[i].value);
-    }
-  }
+  // for (var i = 0; i < checkboxes2.length; i++) {
+  //   if (checkboxes2[i].checked) {
+  //     selectedarr.push(checkboxes2[i].value);
+  //   }
+  // }
 
-  for (var i = 0; i < selectedarr.length; i++) {
-    let value = Number(selected[i]) - 1;
-    if (value > 10800) {
-      data.forEach((item) => {
-        if (Number(item.duration) > 10800) {
-          newData.push(item);
-        }
-      });
-    } else if (value < 10800 && value >= 7200) {
-      data.forEach((item) => {
-        if (Number(item.duration) >= 7200 && Number(item.duration) < 10800) {
-          newData.push(item);
-        }
-      });
-    } else if (value < 7200 && value >= 3600) {
-      data.forEach((item) => {
-        if (Number(item.duration) >= 3600 && Number(item.duration) < 7200) {
-          newData.push(item);
-        }
-      });
-    } else if (value < 3600 && value >= 1800) {
-      data.forEach((item) => {
-        if (Number(item.duration) >= 1800 && Number(item.duration) < 3600) {
-          newData.push(item);
-        }
-      });
-    } else if (value < 1800 && value >= 600) {
-      console.log("yes");
-      data.forEach((item) => {
-        if (Number(item.duration) >= 600 && Number(item.duration) < 1800) {
-          newData.push(item);
-        }
-      });
-    } else if (value < 600) {
-      data.forEach((item) => {
-        if (Number(item.duration) < 600 && Number(item.duration) >= 0) {
-          newData.push(item);
-        }
-      });
-    }
-  }
+  // for (var i = 0; i < selectedarr.length; i++) {
+  //   let value = Number(selected[i]) - 1;
+  //   if (value > 10800) {
+  //     data.forEach((item) => {
+  //       if (Number(item.duration) > 10800) {
+  //         newData.push(item);
+  //       }
+  //     });
+  //   } else if (value < 10800 && value >= 7200) {
+  //     data.forEach((item) => {
+  //       if (Number(item.duration) >= 7200 && Number(item.duration) < 10800) {
+  //         newData.push(item);
+  //       }
+  //     });
+  //   } else if (value < 7200 && value >= 3600) {
+  //     data.forEach((item) => {
+  //       if (Number(item.duration) >= 3600 && Number(item.duration) < 7200) {
+  //         newData.push(item);
+  //       }
+  //     });
+  //   } else if (value < 3600 && value >= 1800) {
+  //     data.forEach((item) => {
+  //       if (Number(item.duration) >= 1800 && Number(item.duration) < 3600) {
+  //         newData.push(item);
+  //       }
+  //     });
+  //   } else if (value < 1800 && value >= 600) {
+  //     console.log("yes");
+  //     data.forEach((item) => {
+  //       if (Number(item.duration) >= 600 && Number(item.duration) < 1800) {
+  //         newData.push(item);
+  //       }
+  //     });
+  //   } else if (value < 600) {
+  //     data.forEach((item) => {
+  //       if (Number(item.duration) < 600 && Number(item.duration) >= 0) {
+  //         newData.push(item);
+  //       }
+  //     });
+  //   }
+  // }
 
-  selectedarr = [];
+  // selectedarr = [];
 
   for (var i = 0; i < checkboxes3.length; i++) {
     if (checkboxes3[i].checked) {
       selectedarr.push(checkboxes3[i].value);
+      keywords.push("level");
+      values.push(checkboxes3[i].value);
     }
   }
 
-  for (var j = 0; j < selectedarr.length; j++) {
-    data.forEach((item) => {
-      let arr = item.level;
+  // for (var j = 0; j < selectedarr.length; j++) {
+  //   data.forEach((item) => {
+  //     let arr = item.level;
 
-      for (var k = 0; k < arr.length; k++) {
-        if (arr[k] === selected[j]) {
-          newData.push(item);
-          break;
-        }
-      }
-    });
+  //     for (var k = 0; k < arr.length; k++) {
+  //       if (arr[k] === selected[j]) {
+  //         newData.push(item);
+  //         break;
+  //       }
+  //     }
+  //   });
+  // }
+
+  // console.log(keywords, values);
+  let url = "http://localhost:2345/courses/search?";
+
+  for (var i = 0; i < keywords.length; i++) {
+    if (i != keywords.length - 1) {
+      url = url + keywords[i] + "=" + values[i] + "&";
+    } else {
+      url = url + keywords[i] + "=" + values[i];
+    }
   }
 
+  let res = await fetch(url);
+  let data1 = await res.json();
+  // console.log(url);
+  console.log(data1);
+
   let toAppend = document.getElementById("displayProducts");
-  display(newData, toAppend);
+  display(data1.courses, toAppend);
 
   document.querySelector("#all .popup").classList.toggle("active");
 
@@ -854,8 +1032,7 @@ function closeAllFilter(stack) {
 
 // resets all selected options
 
-
-function allReset(data, stack, consistentData) {
+function allReset(stack, consistentData) {
   location.reload();
   document.querySelector("#all .selected").classList.toggle("active");
 
@@ -900,7 +1077,7 @@ function allReset(data, stack, consistentData) {
 
 // resets all selected options
 
-function reset(data, stack, consistentData) {
+function reset(stack, consistentData) {
   location.reload();
   document.querySelector("#language .selected").textContent = "Language";
   document.querySelector("#type .selected").textContent = "Type";
@@ -974,14 +1151,17 @@ function openSortOptions() {
   document.getElementById("sortOptions").classList.toggle("active");
 }
 
-function viewcount(data) {
+async function viewcount(url) {
+  let res = await fetch(url);
+  let data = await res.json();
+  let data1 = data.courses;
   document.getElementById("displayProducts").innerHTML = null;
   var selected = document.getElementById("viewCount");
   var value;
   if (selected.checked) {
     value = selected.value;
   }
-  var newData = data.sort(function (a, b) {
+  var newData = data1.sort(function (a, b) {
     a = a.totalLearners;
     b = b.totalLearners;
     return b - a;
