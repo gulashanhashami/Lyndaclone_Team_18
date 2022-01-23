@@ -182,9 +182,10 @@ font-size:14px;
     margin-left:25px;
  }
  #logos{
-     width:500px;
+     width:300px;
      height:30px;
      margin-top:10px;
+     margin-left: 170px;
  }
  #name{
      font-size:13px;
