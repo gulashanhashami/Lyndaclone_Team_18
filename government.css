@@ -3,9 +3,7 @@ body{
     font-family: 'Lato', sans-serif;
     font-family: 'Source Sans Pro', sans-serif;
 }
-/* div{
-    border: 1px solid black;
-} */
+
 #top{
  background-color: #485D69;
  color: #FFFFFF;
@@ -24,9 +22,7 @@ body{
 }
 #head_chat{
   margin-left: 900px; 
- /* border-right: solid 1px #FFFFFF; */
- /* padding-right: 10px;  */
- /* margin-bottom: 10px;  */
+
 }
 #head_support{
  margin-left: 30px;
@@ -310,10 +306,7 @@ display: grid;
 grid-template-columns: 200px 500px;
 margin-top: 50px;
 }
-/* #contimgleft{
-position: absolute;
-margin-left: 100px;
-} */
+
 #contimg{
 margin-right: 100px;
 width: 1500px;

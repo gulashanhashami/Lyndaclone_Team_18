@@ -3,9 +3,7 @@ body{
     font-family: 'Lato', sans-serif;
     font-family: 'Source Sans Pro', sans-serif;
 }
-/* div{
-    border: 1px solid black;
-} */
+
 #top{
  background-color: #485D69;
  color: #FFFFFF;
@@ -26,7 +24,6 @@ body{
   margin-left: 900px; 
  border-right: solid 1px #FFFFFF;
  padding-right: 20px; 
- /* margin-bottom: 10px;  */
 
 }
 #head_support{
@@ -52,7 +49,7 @@ body{
 #bodyleft{
  margin-left:100px ;
  margin-top: 30px;
- /* margin-right: 500px; */
+
  width: 800px;
 }
 #body_left{
