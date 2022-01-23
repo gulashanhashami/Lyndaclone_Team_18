@@ -34,17 +34,25 @@
 </div>
 </div>
 
-    <div id="bodyright"><form><p id="letschat">Let's Chat</p></form>
-        <input type="text" id="fname" placeholder="First name*"></br>
-        <input type="text" id="lname" placeholder="Last name*"></br>
-        <input type="number" id="no" placeholder="Phone Number*"></br>
-        <input type="mail" id="fname" placeholder="Work Email*"></br>
-        <input type="text" id="orgname" placeholder="Organization Name*"></br>
-        <input type="number" id="size" placeholder="Organization Size*"></br>
+    <div id="bodyright">
+        <!-- <form    target="_blank"  action="http://localhost:2345/clients"   method="post"> -->
+        <form method="post" action="http://localhost:2345/clients"   >
+        <p id="letschat">Let's Chat</p>
+        <input type="text" id="fname" name="first_name" placeholder="First name*"></br>
+        <input type="text" id="lname" name="last_name" placeholder="Last name*"></br>
+        <input type="number" id="no" name="phone_number" placeholder="Phone Number*"></br>
+        <input type="mail" id="fname" name="work_email" placeholder="Work Email*"></br>
+        <input type="text" id="orgname" name="organization_name" placeholder="Organization Name*"></br>
+        <input type="number" id="size" name="organization_size" placeholder="Organization Size*"></br>
+        <input type="text" id="fname" name="country" placeholder="Country*"></br>
         <p id="para">By submitting this form, you agree that we may use the data you provide to contact you with information related to your request/submission and the relevant LinkedIn product. If you are a LinkedIn member, you can control the messages you receive from LinkedIn in your settings. If you are a guest, you can unsubscribe from LinkedIn marketing emails at any time by clicking the unsubscribe link in the email. To learn more, see LinkedIn's Privacy Policy.</p>
-        <button id="contactus"  onclick="myFunction()">Contact Us</button>
+        <!-- <input type="submit" id="contactus" name="submit" value="Contact Us" /> -->
+        <input id = "contactus" type="submit"    name="submit" value= "Contact Us"/>
+
+    </form>
     </div>
 </div>
+
 <div id="downdiv"><p id="down">LinkedIn Learning is a modern learning experience that employees will use, love, and apply</p>
 <input  type="button" id="learnmore" value="Learn More">
 </div>
@@ -61,8 +69,9 @@
 
 </div>
 <script>
-    function myFunction(){
-        alert("Our Customer Executive will get back to you shortly.")
+     document.getElementById("contactus").addEventListener("click",contactus);
+    function contactus(){
+    alert("Our Customer Executive will get back to you shortly.")
     }
 </script>
 </body>
