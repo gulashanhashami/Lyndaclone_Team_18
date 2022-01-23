@@ -25,7 +25,7 @@
      var p10=document.createElement("p");
    p10.textContent="Update :"+data.year;
     let img=document.createElement("img");
-    img.setAttribute("src",data.image); 
+    img.setAttribute("src",data.image_url); 
     let p11=document.createElement("p");
     p11.innerHTML=`<button onclick="gocheck()" id="btn3">Start my 1-month free trial</button>`
     let p12=document.createElement("p");
