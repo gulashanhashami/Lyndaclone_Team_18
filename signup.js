@@ -1,20 +1,14 @@
 
-//code for mobile number
-document.getElementById("mobile").value="+91 ";
 //async function for signup
 async function register(){
     let signupData={
-           name:document.getElementById("name").value,
            email:document.getElementById("email").value,
            password:document.getElementById("password").value,
-           username:document.getElementById("username").value,
-           mobile:document.getElementById("mobile").value,
-           description:document.getElementById("description").value,
     };
     signupData=JSON.stringify(signupData); //reassign variable name
     //console.log("signupData:", signupData);
-    // use masai authentication for signin data
-     let register_api=`https://masai-api-mocker.herokuapp.com/auth/register`;
+    // use authentication for signun data
+     let register_api=`http://localhost:2345/register`;
      //use POST method
      let response=await fetch(register_api, {
          method: "POST",
@@ -24,9 +18,8 @@ async function register(){
          },
      });
      let data= await response.json();
-     //console.log("data:",data);
+     console.log("data:",data);
      let password=document.getElementById("password").value;
-     let mobile=document.getElementById("mobile").value;
      let email=document.getElementById("email").value;
      //validation for email
      let flag=0;
@@ -48,34 +41,24 @@ async function register(){
        alert("Password must be greater than or equal to 6 charecters.");
         return false;
     }
-    // mobile number validation
-    else if(mobile.length!==14){
-        document.getElementById("password").style.borderColor="grey";
-        document.getElementById("email").style.borderColor="grey";
-        document.getElementById("mobile").style.borderColor="red";
-        alert("Please enter your 10 digits mobile number");
-       return false;
-    }
      else if(data.error===false){
         document.getElementById("password").style.borderColor="grey";
         document.getElementById("email").style.borderColor="grey";
-        document.getElementById("mobile").style.borderColor="grey";
          alert("You have joined successfully.");
          window.location.href="signin.html";
      }
      else if(data.error===true && data.message==="Registration failed, user already exists"){
         document.getElementById("password").style.borderColor="grey";
         document.getElementById("email").style.borderColor="grey";
-        document.getElementById("mobile").style.borderColor="grey";
          alert("User already exists.");
      }
    
      else{
-         alert("Something went wrong, please try again.");
+         alert("Something went wrong or user already exist, please try again.");
          
      }
 }
 //if already have account signin function
 function signin(){
-    window.location.href="signin.html";
+    window.location.href="http://localhost:2345/auth/google";
 }
