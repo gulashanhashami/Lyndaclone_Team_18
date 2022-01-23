@@ -88,9 +88,10 @@
 
 <div class="box4">
     <div id="box-41">
-        <img  id="logos" src="https://static-exp1.licdn.com/sc/h/8bca1rltjmsti0v31srweuz2z" alt="">
+        <img  id="logos" src="https://w7.pngwing.com/pngs/828/980/png-transparent-credit-card-payment-cheque-discover-card-major-credit-card-logo-file-text-service-display-advertising.png
+        " alt="">
     </div><br>
-    <form method="post"   action="http://localhost:2345/payments">
+    <form method="post" target="_blank"  action="http://localhost:2345/payments">
 
         <label id="name">First name*</label><br>
         <input class="input" id="input1" type="text"  name= "first_name" placeholder="Enter first name"/><br><br>
@@ -128,7 +129,7 @@
         <div id="span">
             <div id="expiry-box">
                 <p id="expiry-date" > Postal code*</p><br>
-                <input  class="expiry" id="expirynew" type="text" name = "postal_code" placeholder="MM/YY"><br><br>
+                <input  class="expiry" id="expirynew" type="text" name = "postal_code" placeholder=""><br><br>
             </div>
             <div id="expiry-box">
                 <p id="expiry-date1" >GST</p><br>
@@ -139,7 +140,7 @@
     
        
    
-        <input type="submit" id = "button" value="Pay Now">
+        <input type="submit" onclick="paynow()" id = "button" value="Pay Now">
     </div>
     
     </form> 
@@ -203,6 +204,7 @@ box2.style.display="block";
 
     function paynow(){
     alert("Your order is successfully placed. Thank You!")
+    window.location.href = "home.html"
   
     }
 
