@@ -97,173 +97,34 @@
 
   document.getElementById("wholeContainer").innerHTML = pageAppend();
 
-  let data = [
-    {
-      type: "LEARNING PATH",
-      language: "English",
-      duration: "64800",
-      level: [],
-      name: "Become a Product Manager",
-      year: "Apr 2020",
-      skill: "Product Development",
-      learners: "33,306",
-      totalLearners: 33306,
-      image: "https://www.hubspot.com/hubfs/product-manager-role.jpeg",
-    },
-    {
-      type: "COURSE",
-      language: "English",
-      duration: "131",
-      level: ["Intermediate"],
-      name: "Product Management: Building a product Strategy",
-      by: "Eldad Persky and Teg Grenager",
-      year: "Updated Mar 2021",
-      skill: "Product Strategy",
-      learners: "187,489",
-      totalLearners: 187489,
-      image:
-        "https://cdn.lynda.com/course/628691/628691-1617317009458-16x9.jpg",
-    },
-    {
-      type: "AUDIO",
-      language: "English",
-      duration: "172",
-      level: [],
-      name: "Leading through disruption",
-      fromTheCourse: "Leadership Tips, Tactics and Advice",
-      year: "Jun 2020",
-      learners: "52,069",
-      totalLearners: 52069,
-      image:
-        "https://cdn.lynda.com/course/2974166/2974166-1592411933382-16x9.jpg",
-    },
-    {
-      type: "LEARNING PATH",
-      language: "Spanish",
-      duration: "33420",
-      level: [],
-      name: "Fomenta la innovación",
-      year: "Jun 2019",
-      skill: " Organizational Leadership, Product Innovation",
-      learners: "2,722",
-      totalLearners: 2722,
-      image:
-        "https://eacademy.riziv-inami.fgov.be/pluginfile.php/5518/course/overviewfiles/Become%20an%20Agile%20Project%20Manager.jpg",
-    },
-    {
-      type: "AUDIO",
-      language: "English",
-      duration: "139",
-      level: [],
-      name: "Productivity principles",
-      fromTheCourse: " Smart Teams (Blinkist Summary)",
-      year: "Aug 2020",
-      learners: "33,306",
-      totalLearners: 33306,
-      image:
-        "https://cdn.lynda.com/course/693078/693078-1563210181370-16x9.jpg",
-    },
-    {
-      type: "VIDEO",
-      language: "English",
-      duration: "170",
-      level: ["Beginner", "Intermediate"],
-      name: "Product manager vs. product owner vs. project manager",
-      fromTheCourse: "Product Management Tips",
-      year: "Apr 2018",
-      learners: "21,945",
-      totalLearners: 21945,
-      image:
-        "https://www.productboard.com/wp-content/uploads/2020/02/product-owner-vs-pm.png",
-    },
-    {
-      type: "COURSE",
-      language: "English",
-      duration: "5760",
-      level: ["Beginnner"],
-      name: "Product Management First Steps",
-      by: " Doug Winnie",
-      year: "Updated Sep 2020",
-      skill: " Product Management",
-      learners: "154,232",
-      totalLearners: 154232,
-      image:
-        "https://cdn.lynda.com/course/479069/479069-1600454954725-16x9.jpg",
-    },
-    {
-      type: "VIDEO",
-      language: "Spanish",
-      duration: "153",
-      level: ["Intermediate"],
-      name: "Que es un Product Owner",
-      fromTheCourse: "SCRUM: Roles",
-      year: "Jun 2018",
-      learners: "7,395 ",
-      totalLearners: 7395,
-      image:
-        "https://cdn.lynda.com/course/756317/756317-636773591046202659-16x9.jpg",
-    },
-    {
-      type: "VIDEO",
-      language: "Portuguese",
-      duration: "157",
-      level: [],
-      name: "As funções do Product Owner e do ScrumMaster",
-      fromTheCourse: "Técnicas Avançadas de Scrum",
-      year: "Nov 2018",
-      learners: "7,711 ",
-      totalLearners: 7711,
-      image:
-        "https://d2o2utebsixu4k.cloudfront.net/media/images/605d0827-613d-4618-8b3f-c9d82201f2fc.jpg",
-    },
-    {
-      type: "VIDEO",
-      language: "Portuguese",
-      duration: "169",
-      level: [],
-      name: "O Product Owner",
-      fromTheCourse: "Fundamentos de Gestão Ágil",
-      year: "Oct 2020",
-      learners: "3,518",
-      totalLearners: 3518,
-      image:
-        "https://cdn.lynda.com/course/756317/756317-636773591046202659-16x9.jpg",
-    },
-    {
-      type: "VIDEO",
-      language: "English",
-      duration: "2880",
-      level: ["Beginner", "Intermediate"],
-      name: "Product manager",
-      fromTheCourse: "Communication for Product Managers",
-      year: "Sep 2018",
-      learners: "13,859",
-      totalLearners: 13859,
-      image:
-        "https://cdn.lynda.com/course/2806963/2806963-1559323765191-16x9.jpg",
-    },
-    {
-      type: "LEARNING PATH",
-      language: "English",
-      duration: "36000",
-      level: [],
-      name: "Become an Agile Project Manager",
-      year: "May 2019",
-      skill: " Project Management, Microsoft Project",
-      learners: "111,977",
-      totalLearners: 111977,
-      image:
-        "https://eacademy.riziv-inami.fgov.be/pluginfile.php/5518/course/overviewfiles/Become%20an%20Agile%20Project%20Manager.jpg",
-    },
-  ];
 
-  const originalData = data;
 
-  let consistentData = [originalData];
+  const keywords = ["category"];
+  const values = ["Product Development"];
+
+  const url =
+    "http://localhost:2345/courses/search?category=Product%20Development";
+
+  let consistentData = [url];
+
+  let alldata;
 
   let toAppend = document.getElementById("displayProducts");
 
-  display(data, toAppend);
+  const originalData = async (url) => {
+    try {
+      let res = await fetch(url);
+      let data1 = await res.json();
+      console.log(data1);
+      display(data1.courses, toAppend);
+      return originalData;
+    } catch (err) {
+      console.log(err.message);
+    }
+  };
+  originalData(url);
+
+
 
   let stack = [];
 
@@ -296,42 +157,42 @@
     openSortOptions();
   });
   document.getElementById("viewCount").addEventListener("click", () => {
-    viewcount(data);
+    viewcount(url);
   });
 
   document.getElementById("showLanguages").addEventListener("click", () => {
-    data = showLanguages(data, stack, consistentData);
+    data = showLanguages(stack, consistentData, keywords, values);
   });
 
   document.getElementById("languageClose").addEventListener("click", () => {
-    languageClose(stack, consistentData);
+    languageClose(stack, consistentData, keywords, values);
   });
 
   document.getElementById("showType").addEventListener("click", () => {
-    data = showType(data, stack, consistentData);
+    data = showType(stack, consistentData, keywords, values);
   });
   document.getElementById("typeClose").addEventListener("click", () => {
-    typeClose(stack);
+    typeClose(stack, consistentData, keywords, values);
   });
 
   document.getElementById("showTime").addEventListener("click", () => {
-    data = showTime(data, stack, consistentData);
+    data = showTime(stack, consistentData, keywords, values);
   });
 
   document.getElementById("timeClose").addEventListener("click", () => {
-    timeClose(stack, consistentData);
+    timeClose(stack, consistentData, keywords, values);
   });
 
   document.getElementById("showLevel").addEventListener("click", () => {
-    data = showLevel(data, stack, consistentData);
+    data = showLevel(stack, consistentData, keywords, values);
   });
 
   document.getElementById("levelClose").addEventListener("click", () => {
-    levelClose(stack, consistentData);
+    levelClose(stack, consistentData, keywords, values);
   });
 
   document.getElementById("showAll").addEventListener("click", () => {
-    data = showAll(data, stack, consistentData);
+    data = showAll(stack, consistentData, keywords, values);
   });
 
   document.getElementById("closeAllFilter").addEventListener("click", () => {
