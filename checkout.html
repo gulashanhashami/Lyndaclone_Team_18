@@ -90,59 +90,60 @@
     <div id="box-41">
         <img  id="logos" src="https://static-exp1.licdn.com/sc/h/8bca1rltjmsti0v31srweuz2z" alt="">
     </div><br>
-    <label id="name">First name*</label><br>
-    <input id="input" type="text" placeholder="Enter first name"/><br><br>
+    <form method="post"   action="http://localhost:2345/payments">
 
-    <label id="name">Last name*</label><br>
-    <input id="input" type="text" placeholder="Enter last name"/><br><br>
-
-    <label id="name">Credit or Debit card Number*</label><br>
-    <input id="input" type="number" placeholder="Enter number"/>
-
-<div id="span">
-    <div id="expiry-box">
-        <p id="expiry-date"> Expiry date*</p><br>
-        <input  id="expiry" type="text" placeholder="MM/YY"><br><br>
-    </div>
-    <div id="expiry-box">
-        <p id="expiry-date1"> Security code* </p><br>
-        <input  id="expiry1" type="text"><br><br>
-    </div>
-</div>
-<br><br>
-<label id="credit">Country*</label><br>
-    <!-- <input id="input" type="text" placeholder="Enter first name"/><br><br> -->
-    <select id="input">
-        <option value="">India</option>
-        <option value="low">Italy</option>
-        <option value="high">Jersy</option>
-        <option value="high">Israel</option>
-        <option value="high">Yamen</option>
-        <option value="high">Aruba</option>
-        <option value="high">Kenya</option>
-        <option value="high">Korea</option>
-
-      </select>
+        <label id="name">First name*</label><br>
+        <input class="input" id="input1" type="text"  name= "first_name" placeholder="Enter first name"/><br><br>
+    
+        <label id="name">Last name*</label><br>
+        <input class="input" id="input2" type="text"  name= "last_name"placeholder="Enter last name"/><br><br>
+    
+        <label id="name">Credit or Debit card Number*</label><br>
+        <input class="input" id="input3" type="number" name= "credit_card_number" placeholder="Enter number"/>
+    
     <div id="span">
         <div id="expiry-box">
-            <p id="expiry-date"> Postal code*</p><br>
-            <input  id="expiry" type="text" placeholder="MM/YY"><br><br>
+            <p id="expiry-date"> Expiry date*</p><br>
+            <input  class="expiry" id="expirynewww" type="text" name= "expiry_date"  placeholder="MM/YY"><br><br>
         </div>
         <div id="expiry-box">
-            <p id="expiry-date1">GST</p><br>
-            <input  id="expiry1" type="text"><br><br>
+            <p id="expiry-date1"> Security code* </p><br>
+            <input  class="expiry1" id="expiry11" name= "security_code" type="text"><br><br>
         </div>
     </div>
     <br><br>
-
-    <label id="name">OTP:</label><br>
-<input id="otp" type=number placeholder="Enter otp">
-<br><br>
-
-<button id="button">Pay Now</button>
-
-<button id="button1">Submit</button>
-</div>
+    <label id="credit">Country*</label><br>
+        
+        <select class="input" id="input4" name= "country">
+            <option value="India">India</option>
+            <option value="Italy">Italy</option>
+            <option value="Jersy">Jersy</option>
+            <option value="Israel">Israel</option>
+            <option value="Yamen">Yamen</option>
+            <option value="Aruba">Aruba</option>
+            <option value="Kenya">Kenya</option>
+            <option value="Korea">Korea</option>
+    
+          </select>
+        <div id="span">
+            <div id="expiry-box">
+                <p id="expiry-date" > Postal code*</p><br>
+                <input  class="expiry" id="expirynew" type="text" name = "postal_code" placeholder="MM/YY"><br><br>
+            </div>
+            <div id="expiry-box">
+                <p id="expiry-date1" >GST</p><br>
+                <input  class="expiry1" id="expiry12" type="text" name = "GST"><br><br>
+            </div>
+        </div>
+        <br><br><br>
+    
+       
+   
+        <input type="submit" id = "button" value="Pay Now">
+    </div>
+    
+    </form> 
+    
 
 <div class="box5">
     <div id="box-51">
@@ -180,8 +181,6 @@
 
     window.onload=function(){
     document.querySelector("#anual").style.display="none";
-   //document.querySelector("#month").style.display="none";
-    
 }
 
 document.getElementById("left-box").addEventListener("click",function(){
@@ -202,14 +201,12 @@ box2.style.display="block";
 
 });
 
-document.getElementById("button").addEventListener("click",function(){
+    function paynow(){
+    alert("Your order is successfully placed. Thank You!")
+  
+    }
 
-alert(" Please enter your OTP and submit it ");
-});
 
-
-document.getElementById("button1").addEventListener("click",function(){
-
-alert("Your order is successfully placed. Thank You!");
-});
 </script>
+
+
