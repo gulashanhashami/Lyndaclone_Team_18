@@ -400,11 +400,7 @@ async function showLanguages(stack, consistentData, keywords, values) {
   console.log(data1);
   console.log(url);
 
-  // data.forEach((item) => {
-  //   if (item.language === selected) {
-  //     newData.push(item);
-  //   }
-  // });
+
   document.querySelector("#language .selected").classList.toggle("active");
 
   let toAppend = document.getElementById("displayProducts");
@@ -514,16 +510,6 @@ async function showType(stack, consistentData, keywords, values) {
   let data1 = await res.json();
   console.log(data1);
 
-  // var newData = [];
-
-  // for (var i = 0; i < selectedarr.length; i++) {
-  //   data.forEach((item) => {
-  //     if (selectedarr[i] === item.type) {
-  //       newData.push(item);
-  //     }
-  //   });
-  // }
-
   let toAppend = document.getElementById("displayProducts");
   display(data1.courses, toAppend);
   document.querySelector(
@@ -602,8 +588,6 @@ async function showTime(stack, consistentData, keywords, values) {
   for (var i = 0; i < checkboxes.length; i++) {
     if (checkboxes[i].checked) {
       selected.push(checkboxes[i].value);
-      // keywords.push("duration");
-      // values.push(checkboxes[i].value);
     }
   }
 
@@ -718,8 +702,6 @@ async function timeClose(stack, consistentData, keywords, values) {
 
   let res = await fetch(url);
   let data1 = await res.json();
-  console.log(url);
-  // console.log(data1);
 
   document.querySelector("#time .options-container").classList.toggle("active");
   consistentData.pop();
@@ -762,21 +744,6 @@ async function showLevel(stack, consistentData, keywords, values) {
 
   let res = await fetch(url);
   let data1 = await res.json();
-  console.log(url);
-  // console.log(data1);
-
-  // for (var j = 0; j < selected.length; j++) {
-  //   data.forEach((item) => {
-  //     let arr = item.level;
-
-  //     for (var k = 0; k < arr.length; k++) {
-  //       if (arr[k] === selected[j]) {
-  //         newData.push(item);
-  //         break;
-  //       }
-  //     }
-  //   });
-  // }
 
   let toAppend = document.getElementById("displayProducts");
   display(data1.courses, toAppend);
@@ -827,8 +794,6 @@ async function levelClose(stack, consistentData, keywords, values) {
 
   let res = await fetch(url);
   let data1 = await res.json();
-  console.log(url);
-  // console.log(data1);
 
   document
     .querySelector("#level .options-container")
@@ -868,12 +833,6 @@ async function showAll(stack, consistentData, keywords, values) {
     }
   }
 
-  // data.forEach((item) => {
-  //   if (item.language === selected) {
-  //     newData.push(item);
-  //   }
-  // });
-
   for (var i = 0; i < checkboxes1.length; i++) {
     if (checkboxes1[i].checked) {
       selectedarr.push(checkboxes1[i].value);
@@ -882,65 +841,7 @@ async function showAll(stack, consistentData, keywords, values) {
     }
   }
 
-  // for (var i = 0; i < selectedarr.length; i++) {
-  //   data.forEach((item) => {
-  //     if (selectedarr[i] === item.type) {
-  //       newData.push(item);
-  //     }
-  //   });
-  // }
-
   selectedarr = [];
-
-  // for (var i = 0; i < checkboxes2.length; i++) {
-  //   if (checkboxes2[i].checked) {
-  //     selectedarr.push(checkboxes2[i].value);
-  //   }
-  // }
-
-  // for (var i = 0; i < selectedarr.length; i++) {
-  //   let value = Number(selected[i]) - 1;
-  //   if (value > 10800) {
-  //     data.forEach((item) => {
-  //       if (Number(item.duration) > 10800) {
-  //         newData.push(item);
-  //       }
-  //     });
-  //   } else if (value < 10800 && value >= 7200) {
-  //     data.forEach((item) => {
-  //       if (Number(item.duration) >= 7200 && Number(item.duration) < 10800) {
-  //         newData.push(item);
-  //       }
-  //     });
-  //   } else if (value < 7200 && value >= 3600) {
-  //     data.forEach((item) => {
-  //       if (Number(item.duration) >= 3600 && Number(item.duration) < 7200) {
-  //         newData.push(item);
-  //       }
-  //     });
-  //   } else if (value < 3600 && value >= 1800) {
-  //     data.forEach((item) => {
-  //       if (Number(item.duration) >= 1800 && Number(item.duration) < 3600) {
-  //         newData.push(item);
-  //       }
-  //     });
-  //   } else if (value < 1800 && value >= 600) {
-  //     console.log("yes");
-  //     data.forEach((item) => {
-  //       if (Number(item.duration) >= 600 && Number(item.duration) < 1800) {
-  //         newData.push(item);
-  //       }
-  //     });
-  //   } else if (value < 600) {
-  //     data.forEach((item) => {
-  //       if (Number(item.duration) < 600 && Number(item.duration) >= 0) {
-  //         newData.push(item);
-  //       }
-  //     });
-  //   }
-  // }
-
-  // selectedarr = [];
 
   for (var i = 0; i < checkboxes3.length; i++) {
     if (checkboxes3[i].checked) {
@@ -950,20 +851,6 @@ async function showAll(stack, consistentData, keywords, values) {
     }
   }
 
-  // for (var j = 0; j < selectedarr.length; j++) {
-  //   data.forEach((item) => {
-  //     let arr = item.level;
-
-  //     for (var k = 0; k < arr.length; k++) {
-  //       if (arr[k] === selected[j]) {
-  //         newData.push(item);
-  //         break;
-  //       }
-  //     }
-  //   });
-  // }
-
-  // console.log(keywords, values);
   let url = "http://localhost:2345/courses/search?";
 
   for (var i = 0; i < keywords.length; i++) {
